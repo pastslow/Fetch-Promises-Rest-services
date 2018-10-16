@@ -1,6 +1,6 @@
 var imgCarNew = document.getElementById("imgCarNew");
-var newCarColor = 'black';
+var valueOfColor = document.getElementById("valueOfColor");
 function changeImageOfNewCar(color){
     imgCarNew.src = `img/${color}.png`;
-    newCarColor = color;
+    valueOfColor.value = color;
 }

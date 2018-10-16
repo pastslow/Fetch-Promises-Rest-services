@@ -20,8 +20,9 @@
     <!-- ========================== container for new car ===============================-->
     <div class="cars-data-container text-center margin-left margin-right margin-top-80">
         <!-- ===================== container fir car number============================= -->
+        <form action="" method="post">
         <div>
-            <input onkeyup="checkIfNumberOfNewCarIsCorrect()" class="text-primary margin-top-20" type="text" placeholder="Car Number" name="" id="newCarNumberId" />
+            <input onkeyup="checkIfNumberOfNewCarIsCorrect()" class="text-primary margin-top-20" type="text" placeholder="Car Number" name="carNumber" id="newCarNumberId" />
         </div>
         <!-- ====================== container for car image =============================-->
         <div class="margin-10 container-new-car">
@@ -50,14 +51,49 @@
         </div>
         <!-- ======================== container for model  ==============================-->
         <div>
-            <input onkeyup="checkIfNumberOfNewCarIsCorrect()" class="text-primary margin-top-20 margin-bot-20" type="text" placeholder="Model" name="" id="carNewModelId" />
+            <input onkeyup="checkIfNumberOfNewCarIsCorrect()" class="text-primary margin-top-20 margin-bot-20" type="text" placeholder="Model" name="carModel" id="carNewModelId" />
             <div id="success" class="d-none">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-ok text-success"></span></button>
+                <input type='submit' class="btn btn-default"/>
+                <span class="glyphicon glyphicon-ok text-success">
+                </span>
             </div>
         </div>
+        <input class="d-none opacity-0" type="text" value='black' name="carColor" id="valueOfColor"/>
+        </form>
     </div>
     <!-- ========================== end of new car container ============================-->
 </body>
 <script src="js/changeNewCarImg.js"></script>
 <script src="js/validationNewCar.js"></script>
 </html>
+
+<?php
+include 'connection.php';
+// insert into server dates from html
+if ($_POST != null) {
+    $carNumber = htmlspecialchars(mysqli_real_escape_string($conn, $_POST["carNumber"]));
+    $carModel = htmlspecialchars(mysqli_real_escape_string($conn, $_POST["carModel"]));
+    $carColor = $_POST["carColor"];
+    if ($carNumber != "") {
+        $sql = "INSERT INTO parkedcars (carNumbers, carModel, carColor) 
+                    VALUES ('" . $carNumber . "', '" . $carModel . "', '" . $carColor . "');";
+
+        header("location: index.php");
+
+        $conn->query($sql);
+        echo $sql;
+    }
+}
+// insert into html dates from server
+// $sql = "SELECT * FROM parking.parkedcars";
+// $result = $conn->query($sql);
+// while ($row = $result->fetch_assoc()) {
+//     echo "<div class='text-greenyellow'>";
+//     echo $row["id"] . " ";
+//     echo $row["carNumbers"] . " ";
+//     echo $row["carColor"] . " ";
+//     echo $row["carModel"] . " ";
+//     echo "</div>";
+// }
+
+?>

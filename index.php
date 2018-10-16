@@ -20,16 +20,54 @@
 
     <div class="div-Park d-flex content-between">
         <h1>Parking Cars</h1>
-        <a target="_blank" href="newCar.html">
-            <button class="btn btn-default bg-lightgray">
+            <button data-toggle="modal" data-target="#myModal" class="btn btn-default bg-lightgray">
                 <h1><span class="glyphicon glyphicon-plus text-success"></span></h1>
             </button>
-        </a>
     </div>
-    <div id="carsDiv" class="central-div text-center">
+    <div id="allCars" class="d-none">
+        <div id="carsDiv" class="central-div text-center">
+        </div>
     </div>
-    <input onclick="insertCarsIntoHtml()" type="button" value="load"/>
+    <div id="loading" class="loading">
+        <span>Loading</span>
+        <span class="spanPoint">.</span>
+        <span class="spanPoint2">.</span>
+        <span class="spanPoint3">.</span>
+    </div>
+    <!-- <input onclick="insertCarsIntoHtml()" type="button" value="load"/> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">Create new car</h3>
+        </div>
+        <div class="modal-body gainsboro">
+            <?php
+                include 'newCar.php';
+            ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
 </body>
 <script src="js/cars.js"></script>
 <script src="js/loadCars.js"></script>
 </html>
+
+<?php
+
+include 'connection.php';
+?>
+
