@@ -33,9 +33,8 @@
         <span class="spanPoint2">.</span>
         <span class="spanPoint3">.</span>
     </div>
-    <!-- <input onclick="insertCarsIntoHtml()" type="button" value="load"/> -->
 
-  <!-- Modal -->
+  <!-- ======================= Modal insert new car ========================-->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -58,11 +57,11 @@
     </div>
   </div>
 
-    <!-- ======================= Modal Delete Car ===========================-->
+    <!-- ====================== Modal delete car ===========================-->
     <div class="modal fade" id="deleteModal" role="dialog">
     <div class="modal-dialog">
     
-      <!--======================== Modal content ============================-->
+      <!--======================= Modal content ============================-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -99,15 +98,39 @@
       
     </div>
   </div>
+
+    <!-- ======================== Modal Edit Car ===========================-->
+    <div class="modal fade" id="editModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">Edit this car</h3>
+        </div>
+        <div class="modal-body gainsboro">
+            <?php
+            include 'editCarModal.php';
+            ?>
+        </div>
+        <div class="modal-footer d-flex content-around">
+        <h3 class="text-center">Item changes will be permanent !</h3>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
   
 </div>
-
 </body>
 <script src="js/deleteCars.js"></script>
 <script src="js/cars.js"></script>
 <script src="js/loadCars.js"></script>
+<script src="js/editCar.js"></script>
 </html>
-
 <?php
 
 include 'connection.php';

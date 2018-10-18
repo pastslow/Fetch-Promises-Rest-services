@@ -21,7 +21,7 @@ while ($row = $result->fetch_assoc()) {
     $car->carNumbers = $row["carNumbers"];
     $car->carColor = $row["carColor"];
     $car->carModel = $row["carModel"];
-    $car->carTime = "00:00:00";
+    $car->carTime = $row["carTime"];
 
     array_push($cars, $car);
 }

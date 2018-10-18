@@ -1,17 +1,5 @@
 
 
-
-// fetch("http://localhost/listCars.php")
-// .then(function (response) {
-//     return response.json();
-// })
-// .then(function (data) {
-//     var myCars = data;
-//     deleteCarOnClick(myCars);
-//     allCars.style.display = "block";
-//     loading.style.display = "none";
-// });
-
 // create a fetch that make a jason and send it to server
 
 var delCarNumber = document.getElementById("delCarNumber");

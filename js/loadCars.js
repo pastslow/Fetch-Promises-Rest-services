@@ -27,7 +27,9 @@ function insertCarsIntoHtml(dataCars) {
         elem += "<div class= 'd-flex content-around align-center'>";
         // =================== Delete button container =======================//
         elem += "<div>"
-        elem += `<button id='btnId${[i]}' onclick='openDeleteCarPopUp("divCarId${[i]}","CarNumber${[i]}","carImage${[i]}","CarTime${[i]}","carId${[i]}","CarModel${[i]}")'  data-toggle="modal" data-target="#deleteModal" class='btn btn-default btn-sm'>
+        elem += `<button id='btnId${[i]}'
+         onclick='openDeleteCarPopUp("divCarId${[i]}","CarNumber${[i]}","carImage${[i]}","CarTime${[i]}","carId${[i]}","CarModel${[i]}")' 
+         data-toggle="modal" data-target="#deleteModal" class='btn btn-default btn-sm'>
         <span class='glyphicon glyphicon-trash'>
         </span>
         </button>`;
@@ -35,7 +37,11 @@ function insertCarsIntoHtml(dataCars) {
         elem += `<h3 class='text-greenyellow' id = 'CarNumber${[i]}'> ${dataCars[i].carNumbers}</h3>`;
         // =================== Edit button container =======================//
         elem += "<div>"
-        elem += `<button class='btn btn-default btn-sm'><span class='glyphicon glyphicon-pencil'></span> Edit</button>`;
+        elem += `<button onclick= 'openEditCarPopUp("divCarId${[i]}","CarNumber${[i]}","carImage${[i]}","CarModel${[i]}","CarTime${[i]}","${dataCars[i].id}")'
+        class='btn btn-default btn-sm' data-toggle="modal" data-target="#editModal">
+        <span class='glyphicon glyphicon-pencil'>
+        </span> Edit
+        </button>`;
         elem += "</div>";
         // ================ End of car number container ====================//
         elem += "</div>";
